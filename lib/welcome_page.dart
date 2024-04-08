@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:odev2_gokhan_sal/question_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({
@@ -41,10 +42,17 @@ class WelcomePage extends StatelessWidget {
               textAlign: TextAlign.center,
               softWrap: true,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 60),
             OutlinedButton.icon(
               onPressed: () {
-                changeCurrentPage('question_page');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => QuestionPage(
+                      changeCurrentPage: changeCurrentPage,
+                    ),
+                  ),
+                );
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: const Color.fromARGB(255, 102, 0, 255),
@@ -59,7 +67,7 @@ class WelcomePage extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               ),
               icon: const Text(
-                'Calculate BMI',
+                'Get Started',
                 style: TextStyle(
                   color: Color.fromARGB(255, 184, 224, 255),
                   fontSize: 20,
@@ -67,7 +75,7 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
               label: Image.asset(
-                'assets/images/arrow-right.png',
+                'assets/images/shining.png',
                 width: 32,
                 color: const Color.fromARGB(255, 184, 224, 255),
               ),

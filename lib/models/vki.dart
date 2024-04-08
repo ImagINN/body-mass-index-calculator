@@ -1,21 +1,10 @@
-import 'package:flutter/material.dart';
+class VKI {
+  const VKI(this.age, this.height, this.weight);
 
-class VKI extends StatefulWidget {
-  const VKI({Key? key}) : super(key: key);
+  final int age, height, weight; //height in cm, weight in kg
 
-  @override
-  State<VKI> createState() => _VKIState();
+  double calculateBMI(double weight, double height) {
+  return weight / ((height / 100) * (height / 100));
 }
 
-class _VKIState extends State<VKI> {
-  //Yaş, cinsiyet, boy ve kilo bilgileri tutulmalı.
-  //vkiHesapla() adında bir metot oluşturulmalı.
-
-  
-  
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
-  }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:odev2_gokhan_sal/question_page.dart';
+import 'package:odev2_gokhan_sal/result_page.dart';
 import 'package:odev2_gokhan_sal/welcome_page.dart';
 
 class MapPage extends StatefulWidget {
@@ -10,19 +11,19 @@ class MapPage extends StatefulWidget {
 }
 
 class _MapPageState extends State<MapPage> {
-  String pageName = 'welcome_page'; // Başlangıçta welcome_page gösterilsin
+  String pageName = 'welcome_page';
   late Widget currentPage;
 
   @override
   void initState() {
     super.initState();
-    showCurrentPage(); // İlk açılışta sayfayı göstermek için initState içinde çağırın
+    showCurrentPage();
   }
 
   void changeCurrentPage(String requestedPageName) {
     setState(() {
       pageName = requestedPageName;
-      showCurrentPage(); // Sayfa değişikliği olduğunda yeni sayfayı göstermek için çağırın
+      showCurrentPage();
     });
   }
 
@@ -31,6 +32,13 @@ class _MapPageState extends State<MapPage> {
       currentPage = WelcomePage(changeCurrentPage: changeCurrentPage);
     } else if (pageName == 'question_page') {
       currentPage = QuestionPage(changeCurrentPage: changeCurrentPage);
+    } else if (pageName == 'result_page') {
+      currentPage = ResultPage(
+          changeCurrentPage: changeCurrentPage,
+          bmiValue: 0.0,
+          age: 0,
+          height: 0,
+          weight: 0);
     }
   }
 
